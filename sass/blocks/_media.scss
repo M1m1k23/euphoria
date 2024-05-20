@@ -1,0 +1,182 @@
+@media (max-width: toEm(767.98)) {
+    .header {
+        &__menu {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            overflow: auto;
+            left: -100%;
+            transition: left .3s;
+            z-index: 2;
+            background-color: #fff;
+            padding: toRem(0) toRem(15) toRem(30) toRem(15);
+            @include adaptiveValue("padding-top", 138, 95, 3, 768, 320);
+            &::before {
+                content: "";
+                position: fixed;
+                width: 100%;
+                @include adaptiveValue("height", 109, 66);
+                background-color: #fff;
+                z-index: 3;
+                top: 0;
+                left: -100%;
+                border-bottom: toRem(1) solid #BEBCBD;
+                transition: left .3s;
+            }
+            .menu-open & {
+                left: 0;
+                &::before {
+                    left: 0;
+                }
+            }
+        }
+        &__search {
+            flex-grow: 1;
+        }
+    }
+    .menu {
+        &__list {
+            flex-direction: column;
+            row-gap: toRem(25);
+        }
+        &__link {
+            font-size: toRem(32);
+        }
+    }
+    .icon-menu {
+        display: block;
+        position: relative;
+        width: toRem(44);
+        height: toRem(44);
+        padding: toRem(5);
+        border-radius: toRem(8);
+        background-color: #F6F6F6;;
+        z-index: 5;
+        @media (any-hover: none){
+            &:hover{
+                cursor: default;
+            }
+        }
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all .3s ease 0s;
+            left: toRem(8);
+            position: absolute;
+            width: toRem(30);
+            height: toRem(2);
+            background-color: $mainColor;
+        }
+        &::before {
+            top: toRem(8);
+        }
+        &::after {
+            bottom: toRem(8);
+        }
+        span {
+            top: calc(50% - toRem(1));
+        }
+        .menu-open & {
+            span {
+                width: 0;
+            }
+            &::before {
+                top: calc(50% - toRem(1));
+                transform: rotate(-45deg);
+            }
+            &::after {
+                top: calc(50% - toRem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+@media (max-width: toEm(760)){
+    .footer {
+        &__body {
+            flex-direction: column-reverse;
+            align-items: stretch;
+        }
+        &__download {
+            flex: 1 1 auto;
+        }
+    }
+    .menu-footer {
+        &__block {
+            flex: 1 1 33.333%;
+            &:nth-child(3n), 
+            &:last-child {
+                padding-right: toRem(0);
+            } 
+        }
+    }
+}
+@media (max-width: toEm(540)){
+    .header {
+        &__menu {
+            padding-bottom: toRem(105);
+        }
+        &__action {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: toRem(15);
+            background-color: #fff;
+            border-top: toRem(1) solid #BEBCBD;
+        }
+    }
+    .action-header {
+        &__item {
+            width: auto;
+        }
+    }
+}
+@media (max-width: toEm(440)) {
+    .menu-footer {
+        &__block {
+            flex: 1 1 50%;
+            &:nth-child(2n), 
+            &:last-child {
+                padding-right: toRem(0);
+            } 
+        }
+    }
+    .social-footer {
+        &__list {
+            justify-content: space-between;
+        }
+        &__item {
+            flex: 1 1 auto;
+        }
+    }
+      
+}
+@media (max-width: toEm(379.98)) {
+    .menu-footer {
+        &__block {
+            flex: 1 1 100%;
+            padding-right: toRem(0);
+            &:nth-child(4n), 
+            &:last-child {
+                flex: 1 1 100%;
+            } 
+        }
+    }
+}
+
+/* Min */
+
+@media (min-width: toEm(760)){
+    .menu-footer {
+        &__block {
+            &:nth-child(4n), 
+            &:last-child {
+                padding-right: toRem(0);
+                flex: 1 1 37.264151%;
+            } 
+        }
+    }
+}

@@ -1,0 +1,117 @@
+@use "sass:math";
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1440;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1240;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+@import "fonts";
+@import "base/variables";
+@import "base/mixins";
+@import "base/functions";
+@import "base/icons";
+@import "blocks/reset";
+@import "blocks/common";
+
+
+body {
+    font-family: "Causten";
+    color: $mainColor;
+    .menu-open & {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+}
+.wrap {
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: toEm(540)){
+        padding-bottom: toRem(75);
+    }
+}
+.page {
+    flex: 1 1 auto;
+    &__hero {
+        @include adaptiveValue("margin-bottom", 130, 40);
+    }
+    &__deals {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    &__new {
+        @include adaptiveValue("margin-bottom", 95, 40);
+    }
+    &__sale {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .page__shop-now
+    &__shop-now {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .page__brands
+    &__brands {
+        @include adaptiveValue("margin-bottom", 75, 40);
+    }
+    // .page__products
+    &__products {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .page__reviews
+    &__reviews {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .page__catalog
+    &__catalog {
+    }
+    // .page__product
+    &__product {
+    }
+}
+.product {
+    // .product__main
+    &__main {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .product__description
+    &__description {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+    // .product__products
+    &__products {
+        @include adaptiveValue("margin-bottom", 100, 40);
+    }
+}
+
+[class*="__container"] {
+	max-width: toRem(1270);
+	margin: toRem(0) auto;
+	padding: toRem(0) toRem(15);
+}
+
+@import "blocks/header";
+@import "blocks/home/hero";
+@import "blocks/home/deals";
+@import "blocks/home/new";
+@import "blocks/home/sale";
+@import "blocks/home/shop-now";
+@import "blocks/home/brands";
+@import "blocks/home/products";
+@import "blocks/home/reviews";
+@import "blocks/catalog/filter";
+@import "blocks/catalog/catalog";
+@import "blocks/catalog/nouislider";
+@import "blocks/catalog/description";
+@import "blocks/catalog/best-price";
+@import "blocks/product/main-product";
+@import "blocks/product/description";
+
+@import "blocks/footer";
+@import "blocks/media";

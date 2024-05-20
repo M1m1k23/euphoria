@@ -1,0 +1,99 @@
+.description {
+    // .description__container
+    &__container {
+        
+    }
+    // .description__title
+    &__title {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 30, 20);
+        }
+    }
+    // .description__body
+    &__body {
+        @media (min-width: toEm(991.98)){
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+    }
+    // .description__tabs
+    &__tabs {
+        flex: 0 0 50%;
+        @include adaptiveValue("margin-bottom", 40, 20, 3, 991.98, 320);
+    }
+    // .description__video
+    &__video {
+        flex: 0 0 50%;
+        width: 100%;
+        @include adaptiveValue("padding-left", 74, 25, 2, $containerWidth, 991.98);
+        aspect-ratio: 532 / 328;
+        object-fit: cover;
+    }
+}
+
+.product-description {
+    // .product-description__text
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: toRem(30);
+        }
+        p {
+            line-height: 1.56;
+            letter-spacing: toRem(0.32);
+            &:not(:last-child) {
+                margin-bottom: toRem(15);
+            }
+        }
+    }
+    // .product-description__table
+    &__table {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(toRem(200), auto));
+        background-color: rgba(246, 246, 246, 0.6);
+        @media (max-width: toEm(479.98)){
+            margin: 0 toRem(-15);
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            background-color: #f6f6f6;
+        }
+        &::before {
+            right: 0;
+            top: 0;
+            width: toRem(1);
+            height: 100%;
+        }
+        &::after {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: toRem(1);
+        }
+    }
+    // .product-description__item
+    &__item {
+        border-right: toRem(1) solid rgba(190, 188, 189, 0.4);
+        border-bottom: toRem(1) solid rgba(190, 188, 189, 0.4);
+        
+        @include adaptiveValue("padding-top", 17, 15);
+        @include adaptiveValue("padding-bottom", 17, 15);
+        @include adaptiveValue("padding-left", 43, 15);
+        @include adaptiveValue("padding-right", 43, 15);
+        display: grid;
+        gap: toRem(12);
+    }
+    // .product-description__label
+    &__label {
+        
+    }
+    // .product-description__value
+    &__value {
+        color: $darkColor;
+        font-weight: 500;
+    }
+}

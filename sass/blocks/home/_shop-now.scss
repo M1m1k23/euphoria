@@ -1,0 +1,88 @@
+.shop-now {
+    // .shop-now__container
+    &__container {
+        display: grid;
+            @media (min-width: toEm(991.98)){
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            @media (max-width: toEm(479.98)){
+                padding: 0;
+          }
+    }
+    // .shop-now__content
+    &__content {
+        color: #fff;
+        border-radius: toRem(15) 0 0 toRem(15);
+        overflow: hidden;
+        background: url('../img/shop-now/left.webp') center / cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        @include adaptiveValue("padding-left", 75, 15);
+        @include adaptiveValue("padding-right", 75, 15);
+        @include adaptiveValue("padding-top", 75, 25);
+        @include adaptiveValue("padding-bottom", 75, 25);
+        > * {
+            @include adaptiveValue("margin-bottom", 30, 15);
+            &:last-child {
+                margin: toRem(0);
+            }
+        }
+        @media (max-width: toEm(991.98)){
+            border-radius: toRem(15) toRem(15) 0 0;
+              
+        }
+        @media (max-width: toEm(479.98)) {
+            border-radius: 0;
+        }
+    }
+    // .shop-now__title
+    &__title {
+        @extend %CS;
+        @include adaptiveValue(" font-size", 34, 28);
+        font-weight: 800;
+        line-height: 1.45;
+        letter-spacing: toRem(0.208);
+    }
+    // .shop-now__text
+    &__text {
+        @include adaptiveValue("font-size", 20, 18);
+        font-weight: 300;
+        line-height: 1.3;
+        letter-spacing: toRem(1);
+        @include adaptiveValue("margin-bottom", 50, 15);
+        p {
+            &:not(:last-child) {
+                margin-bottom: toRem(15);
+            }
+        }
+    }
+    // .shop-now__button
+    &__button {
+        font-weight: 600;
+        min-width: toRem(170);
+        @media (max-width: toEm(479.98)) {
+            width: 100%;
+        }
+    }
+    // .shop-now__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius:  0 toRem(15) toRem(15) 0;
+        @media (max-width: toEm(991.98)){
+            border-radius: 0 0 toRem(15) toRem(15);
+              
+        }
+        @media (max-width: toEm(479.98)) {
+            border-radius: 0;
+        }
+    }
+}
+
+
+
+
